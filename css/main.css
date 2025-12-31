@@ -1,0 +1,74 @@
+body {
+    font-family: system-ui, sans-serif;
+    background: #0e0e11;
+    color: #eaeaea;
+  }
+  
+  .site-header {
+    display: flex;
+    justify-content: space-between;
+    padding: 2rem;
+  }
+  
+  nav a {
+    margin-left: 1.5rem;
+    text-decoration: none;
+    color: inherit;
+    position: relative;
+  }
+  
+  .container {
+    display: grid;
+    grid-template-columns: 1fr 4fr;
+    padding-left: 15px;
+    padding-right: 15px;
+    gap: 20px; 
+  }
+
+  .button {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid currentColor;
+    background: transparent;
+    cursor: pointer;
+    transition: all 0.2s ease;
+  }
+  
+  .button:hover {
+    background: currentColor;
+    color: black;
+  }
+
+  .img-button {
+    /* --btn-width: 200px; */
+    /* --btn-height: 80px; */
+  
+    width: 100%;
+    aspect-ratio: 5 / 2;
+  
+    border: none;
+    cursor: pointer;
+    position: relative;
+  
+    background-image: url("../assets/buttons/button-on.png");
+    background-size: 100% auto;
+    background-position: center;
+  
+    font-size: 1rem;
+
+    margin-bottom: 10px;
+  }
+  
+  .img-button.is-off {
+    background-image: url("../assets/buttons/button-off.png");
+  }
+
+  /* ON state */
+  .img-button.is-on {
+    background-image: url("../assets/buttons/button-on.png");
+  }
+  
+  /* Optional hover feedback */
+  .img-button:hover {
+    filter: brightness(1.05);
+  }
+  
