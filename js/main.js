@@ -22,9 +22,7 @@ function updateSizes() {
   for (let i = 0; i < sections.length; i++) {
     r = Math.max(0, Math.min(content.scrollTop + content.offsetHeight, sections[i].offsetTop + sections[i].offsetHeight) - Math.max(content.scrollTop, sections[i].offsetTop));
     buttons[i].style.aspectRatio = "5/" + (1 + 2*r/content.offsetHeight);
-    console.log(i, r / content.offsetHeight);
   }
-  console.log(' ');
 }
 
 buttons.forEach(btn => {
