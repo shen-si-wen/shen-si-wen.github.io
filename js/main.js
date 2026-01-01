@@ -10,6 +10,9 @@ function checkOrientation() {
 
 window.addEventListener("load", checkOrientation);
 window.addEventListener("resize", checkOrientation);
+window.addEventListener("orientationchange", checkOrientation);
+document.addEventListener("DOMContentLoaded", checkOrientation);
+
 
 const content = document.querySelector(".content");
 const buttons = document.querySelectorAll(".sidebar button");
