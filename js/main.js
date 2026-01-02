@@ -18,13 +18,66 @@ const content = document.querySelector(".content");
 const buttons = document.querySelectorAll(".sidebar button");
 const sections = document.querySelectorAll("section");
 
-let r = 0;
+
+fetch('data.json')
+  .then(res => res.text())
+  .then(jsonStr => {
+    const assets = JSON.parse(jsonStr);
+    const images = assets["images"];
+
+    sections.forEach(section => {
+      const type = section.id;
+      
+      if (images.hasOwnProperty(type)) {
+        const works = images[type];
+        const gallery = section.querySelector(".gallery");
+
+        for (const work in works) {
+          const itemData = works[work]; // { image: "...", text: "..." }
+
+          const item = document.createElement("div");
+          item.classList.add("item");
+
+          const img = document.createElement("img");
+          img.src = "assets/" + itemData.image;
+          img.alt = work;
+          item.appendChild(img);
+
+          fetch("assets/" + itemData.text)
+            .then(res => res.text())
+            .then(textContent => {
+              const p = document.createElement("p");
+              p.textContent = textContent;
+              item.appendChild(p);
+            })
+            .catch(err => {
+              console.error(`Failed to load text file ${itemData.text}:`, err);
+            });
+
+          // Append the item div to the gallery
+          gallery.appendChild(item);
+        }
+      }
+    });
+  })
+  .catch(err => console.error(err));
+
 
 function updateSizes() {
 
+  const contentRect = content.getBoundingClientRect();
+
   for (let i = 0; i < sections.length; i++) {
-    r = Math.max(0, Math.min(content.scrollTop + content.offsetHeight, sections[i].offsetTop + sections[i].offsetHeight) - Math.max(content.scrollTop, sections[i].offsetTop));
-    buttons[i].style.aspectRatio = "5/" + (1 + 2*r/content.offsetHeight);
+    const sectionRect = sections[i].getBoundingClientRect();
+
+    const overlap = Math.max(
+      0,
+      Math.min(contentRect.bottom, sectionRect.bottom) -
+      Math.max(contentRect.top, sectionRect.top)
+    );
+
+    buttons[i].style.aspectRatio =
+      "5/" + (1 + overlap / contentRect.height);
   }
 }
 

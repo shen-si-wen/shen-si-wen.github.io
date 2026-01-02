@@ -1,0 +1,46 @@
+{
+  "buttons": {
+    "button-hover.png": null,
+    "button-off.png": null,
+    "button-on.png": null
+  },
+  "fonts": {},
+  "images": {
+    "Animation": {
+      "Fleeting": {
+        "image": "images/Animation/Fleeting/Fleeting.gif",
+        "text": "images/Animation/Fleeting/Fleeting.txt"
+      },
+      "Seeing Time": {
+        "image": "images/Animation/Seeing Time/Seeing Time.gif",
+        "text": "images/Animation/Seeing Time/Seeing Time.txt"
+      }
+    },
+    "Charcoal": {
+      "Poker Card": {
+        "image": "images/Charcoal/Poker Card/Poker Card.jpg",
+        "text": "images/Charcoal/Poker Card/Poker Card.txt"
+      }
+    },
+    "Graphite": {
+      "Still Life 1": {
+        "image": "images/Graphite/Still Life 1/Still Life 1.jpg",
+        "text": "images/Graphite/Still Life 1/Still Life 1.txt"
+      },
+      "Violin": {
+        "image": "images/Graphite/Violin/Violin.jpg",
+        "text": "images/Graphite/Violin/Violin.txt"
+      }
+    },
+    "Paint": {
+      "Storefront": {
+        "image": "images/Paint/Storefront/Storefront.jpg",
+        "text": "images/Paint/Storefront/Storefront.txt"
+      },
+      "Sunflower Field": {
+        "image": "images/Paint/Sunflower Field/Sunflower Field.jpg",
+        "text": "images/Paint/Sunflower Field/Sunflower Field.txt"
+      }
+    }
+  }
+}
