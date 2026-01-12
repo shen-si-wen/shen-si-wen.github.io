@@ -83,6 +83,7 @@ a:visited {
 }
 
 .gallery {
+  height: 40vh;
   display: flex;
   overflow-x: auto;
   gap: 15px;
@@ -91,11 +92,10 @@ a:visited {
 
 .item {
   text-align: center;
-  width: auto;
 }
 
 .item img {
-  height: 40vh;
+  height: 80%;
 }
 
   .img-button {

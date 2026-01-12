@@ -48,7 +48,24 @@
         "text": "images/Graphite/Violin/Violin.txt"
       }
     },
-    "Miscellaneous": {},
+    "Miscellaneous": {
+      "1": {
+        "image": "images/Miscellaneous/1/1.jpeg",
+        "text": "images/Miscellaneous/1/1.txt"
+      },
+      "Buildings": {
+        "image": "images/Miscellaneous/Buildings/Buildings.jpeg",
+        "text": "images/Miscellaneous/Buildings/Buildings.txt"
+      },
+      "DC": {
+        "image": "images/Miscellaneous/DC/DC.jpeg",
+        "text": "images/Miscellaneous/DC/DC.txt"
+      },
+      "Fish": {
+        "image": "images/Miscellaneous/Fish/Fish.jpeg",
+        "text": "images/Miscellaneous/Fish/Fish.txt"
+      }
+    },
     "Paint": {
       "1": {
         "image": "images/Paint/1/1.jpeg",
