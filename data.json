@@ -20,19 +20,48 @@
       "Poker Card": {
         "image": "images/Charcoal/Poker Card/Poker Card.jpg",
         "text": "images/Charcoal/Poker Card/Poker Card.txt"
+      },
+      "Portrait": {
+        "image": "images/Charcoal/Portrait/Portrait.jpeg",
+        "text": "images/Charcoal/Portrait/Portrait.txt"
+      },
+      "Quick Studies": {
+        "image": "images/Charcoal/Quick Studies/Quick Studies.jpeg",
+        "text": "images/Charcoal/Quick Studies/Quick Studies.txt"
       }
     },
     "Graphite": {
+      "Chess": {
+        "image": "images/Graphite/Chess/Chess.jpeg",
+        "text": "images/Graphite/Chess/Chess.txt"
+      },
       "Still Life 1": {
         "image": "images/Graphite/Still Life 1/Still Life 1.jpg",
         "text": "images/Graphite/Still Life 1/Still Life 1.txt"
+      },
+      "Still Life 2": {
+        "image": "images/Graphite/Still Life 2/Still Life 2.jpeg",
+        "text": "images/Graphite/Still Life 2/Still Life 2.txt"
       },
       "Violin": {
         "image": "images/Graphite/Violin/Violin.jpg",
         "text": "images/Graphite/Violin/Violin.txt"
       }
     },
+    "Miscellaneous": {},
     "Paint": {
+      "1": {
+        "image": "images/Paint/1/1.jpeg",
+        "text": "images/Paint/1/1.txt"
+      },
+      "Glassware": {
+        "image": "images/Paint/Glassware/Glassware.jpeg",
+        "text": "images/Paint/Glassware/Glassware.txt"
+      },
+      "Landscape": {
+        "image": "images/Paint/Landscape/Landscape.jpeg",
+        "text": "images/Paint/Landscape/Landscape.txt"
+      },
       "Storefront": {
         "image": "images/Paint/Storefront/Storefront.jpg",
         "text": "images/Paint/Storefront/Storefront.txt"
@@ -40,6 +69,24 @@
       "Sunflower Field": {
         "image": "images/Paint/Sunflower Field/Sunflower Field.jpg",
         "text": "images/Paint/Sunflower Field/Sunflower Field.txt"
+      }
+    },
+    "WIP": {
+      "From the Inside": {
+        "image": "images/WIP/From the Inside/From the Inside.jpeg",
+        "text": "images/WIP/From the Inside/From the Inside.txt"
+      },
+      "Greenhouse": {
+        "image": "images/WIP/Greenhouse/Greenhouse.jpeg",
+        "text": "images/WIP/Greenhouse/Greenhouse.txt"
+      },
+      "Night Bus": {
+        "image": "images/WIP/Night Bus/Night Bus.jpeg",
+        "text": "images/WIP/Night Bus/Night Bus.txt"
+      },
+      "Parking Lot Lights": {
+        "image": "images/WIP/Parking Lot Lights/Parking Lot Lights.jpeg",
+        "text": "images/WIP/Parking Lot Lights/Parking Lot Lights.txt"
       }
     }
   }

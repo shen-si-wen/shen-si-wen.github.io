@@ -33,7 +33,7 @@ fetch('data.json')
         const gallery = section.querySelector(".gallery");
 
         for (const work in works) {
-          const itemData = works[work]; // { image: "...", text: "..." }
+          const itemData = works[work];
 
           const item = document.createElement("div");
           item.classList.add("item");
@@ -54,7 +54,6 @@ fetch('data.json')
               console.error(`Failed to load text file ${itemData.text}:`, err);
             });
 
-          // Append the item div to the gallery
           gallery.appendChild(item);
         }
       }
