@@ -53,11 +53,10 @@ a:visited {
   background: #000;
   color: #fff;
   display: flex;
-  text-align: right;
-  justify-content: space-between;
+  justify-content: flex-end;
   padding: 2rem;
 }
-  
+
 .container {
   height: 80vh;
   display: grid;
