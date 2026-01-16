@@ -59,11 +59,10 @@ fetch('data.json')
             .then(res => res.text())
             .then(textContent => {
 
-              const formattedHtml = textString.replace(/\n/g, '<br>');
+              const formattedHtml = textContent.replace(/\n/g, '<br>');
 
               const p = document.createElement("p");
               p.innerHTML = formattedHtml;
-              p.textContent = textContent;
               item.appendChild(p);
             })
             .catch(err => {
