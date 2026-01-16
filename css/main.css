@@ -91,7 +91,14 @@ a:visited {
 }
 
 .item {
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+.item img {
+  display: block;
 }
 
 .item p {
