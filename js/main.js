@@ -1,4 +1,10 @@
+let vh = window.innerHeight * 0.01;
+document.documentElement.style.setProperty('--vh', `${vh}px`);
+
 function checkOrientation() {
+  let vh = window.innerHeight * 0.01;
+  document.documentElement.style.setProperty('--vh', `${vh}px`);
+
   const overlay = document.getElementById("rotate-overlay");
 
   if (window.innerHeight > window.innerWidth) {
@@ -60,7 +66,6 @@ fetch('data.json')
     });
   })
   .catch(err => console.error(err));
-
 
 function updateSizes() {
 

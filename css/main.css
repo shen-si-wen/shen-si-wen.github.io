@@ -1,4 +1,6 @@
 body {
+  height: 100vh;
+  height: calc(var(--vh, 1vh) * 100);
   font-family: system-ui, sans-serif;
   text-align: left;
   background: #ffffff;
