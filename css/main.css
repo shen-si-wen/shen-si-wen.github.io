@@ -87,7 +87,6 @@ a:visited {
   display: flex;
   overflow-x: auto;
   gap: 15px;
-  justify-content: start;
 }
 
 .item {
