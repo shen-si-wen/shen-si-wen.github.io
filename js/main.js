@@ -1,9 +1,15 @@
 let vh = window.innerHeight * 0.01;
 document.documentElement.style.setProperty('--vh', `${vh}px`);
 
+let vw = window.innerWidth * 0.01;
+document.documentElement.style.setProperty('--vw', `${vw}px`);
+
 function checkOrientation() {
   let vh = window.innerHeight * 0.01;
   document.documentElement.style.setProperty('--vh', `${vh}px`);
+
+  let vw = window.innerWidth * 0.01;
+  document.documentElement.style.setProperty('--vw', `${vw}px`);
 
   const overlay = document.getElementById("rotate-overlay");
 
