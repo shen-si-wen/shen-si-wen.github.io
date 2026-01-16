@@ -99,6 +99,7 @@ a:visited {
 
 .item img {
   height: 80%;
+  width: auto;
   object-fit: contain;
   display: block;
 }
