@@ -58,6 +58,10 @@ fetch('data.json')
           fetch("assets/" + itemData.text)
             .then(res => res.text())
             .then(textContent => {
+
+              const formattedHtml = textString.replace(/\n/g, '<br>');
+              document.getElementById('output').innerHTML = formattedHtml;
+
               const p = document.createElement("p");
               p.textContent = textContent;
               item.appendChild(p);
