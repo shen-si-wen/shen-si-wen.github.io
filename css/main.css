@@ -91,8 +91,13 @@ a:visited {
 }
 
 .item {
+  text-align: left;
+}
+
+.item p {
   text-align: center;
 }
+
 
   .img-button {
   
