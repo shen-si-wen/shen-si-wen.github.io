@@ -91,10 +91,9 @@ document.querySelectorAll(".animated-button video").forEach(video => {
   });
 });
 
-let needsUpdate = false;
+let lastScrollTop = content.scrollTop;
 
-function updateSizes() {
-
+function updateProgress() {
   const contentRect = content.getBoundingClientRect();
 
   for (let i = 0; i < sections.length; i++) {
@@ -106,47 +105,94 @@ function updateSizes() {
       Math.max(contentRect.top, sectionRect.top)
     );
 
-    buttons[i].style.aspectRatio =
-      "5/" + (1 + overlap / sectionRect.height);
+    const progress = Math.min(Math.max(overlap / sectionRect.height, 0), 1);
 
-    if (buttons[i].className == "animated-button") {
-      const video = buttons[i].querySelector("video");
+    const btn = buttons[i];
+    btn.style.aspectRatio = "5/" + (1 + progress);
+    btn.style.setProperty("--progress", progress);
+    btn._progress = progress;
+  }
+}
 
-      let progress = overlap / sectionRect.height;
-      // console.log(progress);
-      buttons[i].style.setProperty("--progress", progress);
-      buttons[i]._progress = progress;
-      
-      // if (!video._ready || !video.duration) return;
+function scrubVideos() {
+  buttons.forEach(btn => {
+    if (!btn.classList.contains("animated-button")) return;
 
-      // video.pause();
-      // video.currentTime = progress * video.duration;
+    const video = btn.querySelector("video");
+    if (!video || !video._ready || !video.duration) return;
+
+    const targetTime = btn._progress * video.duration;
+    if (Math.abs(video.currentTime - targetTime) > 0.001) {
+      video.currentTime = targetTime;
     }
+    video.pause(); // ensures it doesn’t play
+  });
 
-    needsUpdate = true;
-
-  }
+  requestAnimationFrame(scrubVideos);
 }
 
-function rafLoop() {
-  if (needsUpdate) {
-    buttons.forEach(btn => {
-      if (!btn.classList.contains("animated-button")) return;
+scrubVideos();
 
-      const video = btn.querySelector("video");
-      if (!video || !video._ready || !video.duration) return;
+content.addEventListener("scroll", updateProgress, { passive: true });
+updateProgress(); // initialize
 
-      video.pause();
-      video.currentTime = btn._progress * video.duration;
-    });
 
-    needsUpdate = false;
-  }
+// let needsUpdate = false;
 
-  requestAnimationFrame(rafLoop);
-}
+// function updateSizes() {
 
-rafLoop();
+//   const contentRect = content.getBoundingClientRect();
+
+//   for (let i = 0; i < sections.length; i++) {
+//     const sectionRect = sections[i].getBoundingClientRect();
+
+//     const overlap = Math.max(
+//       0,
+//       Math.min(contentRect.bottom, sectionRect.bottom) -
+//       Math.max(contentRect.top, sectionRect.top)
+//     );
+
+//     buttons[i].style.aspectRatio =
+//       "5/" + (1 + overlap / sectionRect.height);
+
+//     if (buttons[i].className == "animated-button") {
+//       const video = buttons[i].querySelector("video");
+
+//       let progress = overlap / sectionRect.height;
+//       // console.log(progress);
+//       buttons[i].style.setProperty("--progress", progress);
+//       buttons[i]._progress = progress;
+      
+//       // if (!video._ready || !video.duration) return;
+
+//       // video.pause();
+//       // video.currentTime = progress * video.duration;
+//     }
+
+//     needsUpdate = true;
+
+//   }
+// }
+
+// function rafLoop() {
+//   if (needsUpdate) {
+//     buttons.forEach(btn => {
+//       if (!btn.classList.contains("animated-button")) return;
+
+//       const video = btn.querySelector("video");
+//       if (!video || !video._ready || !video.duration) return;
+
+//       video.pause();
+//       video.currentTime = btn._progress * video.duration;
+//     });
+
+//     needsUpdate = false;
+//   }
+
+//   requestAnimationFrame(rafLoop);
+// }
+
+// rafLoop();
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -154,13 +200,13 @@ buttons.forEach(btn => {
     document.getElementById(id).scrollIntoView({
       behavior: "smooth"
     });
-    updateSizes();
+    updateProgress();
   });
 });
 
-updateSizes();
-content.addEventListener("scroll", updateSizes, { passive: true });
-updateSizes();
+// updateSizes();
+// content.addEventListener("scroll", updateSizes, { passive: true });
+// updateSizes();
 
 
 const lightbox = document.getElementById('lightbox');
