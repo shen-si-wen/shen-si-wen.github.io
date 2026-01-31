@@ -107,6 +107,35 @@ buttons.forEach(btn => {
 updateSizes();
 content.addEventListener("scroll", updateSizes);
 
+const lightbox = document.getElementById('lightbox');
+const lightboxImg = document.getElementById('lightbox-img');
+const lightboxText = document.getElementById('lightbox-text');
+
+document.addEventListener('click', e => {
+  const img = e.target.closest('.item img');
+  if (!img) return;
+
+  const item = img.closest('.item');
+  const p = item.querySelector('p');
+
+  lightboxImg.src = img.src;
+  lightboxText.innerHTML = p ? p.innerHTML : '';
+
+  lightbox.style.display = 'flex';
+});
+
+lightbox.addEventListener('click', () => {
+  lightbox.style.display = 'none';
+  lightboxImg.src = '';
+});
+
+document.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    lightbox.style.display = 'none';
+    lightboxImg.src = '';
+  }
+});
+
 
 // const observer = new IntersectionObserver(
 //   entries => {

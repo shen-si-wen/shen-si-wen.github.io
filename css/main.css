@@ -65,6 +65,37 @@ a:visited {
   padding-right: 5%;
 }
 
+#lightbox {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.8);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+}
+
+.lightbox-content {
+  display: flex;
+  gap: 2rem;
+  max-width: 90vw;
+  max-height: 90vh;
+  align-items: center;
+}
+
+#lightbox-img {
+  max-width: 60vw;
+  max-height: 60vh;
+  cursor: zoom-out;
+}
+
+#lightbox-text {
+  color: white;
+  max-width: 30vw;
+  font-size: 1rem;
+  line-height: 1.4;
+}
+
 .container {
   height: 90%;
   display: grid;
@@ -107,6 +138,7 @@ a:visited {
 }
 
 .item img {
+  cursor: zoom-in;
   height: 200px;
   /* max-height: 30vh; */
   /* max-width: 100%; */
