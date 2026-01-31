@@ -27,7 +27,6 @@ document.addEventListener("DOMContentLoaded", checkOrientation);
 
 
 const content = document.querySelector(".content");
-const buttons = document.querySelectorAll(".sidebar button");
 const sections = document.querySelectorAll("section");
 
 
@@ -76,6 +75,22 @@ fetch('data.json')
   })
   .catch(err => console.error(err));
 
+
+const buttons = document.querySelectorAll(".sidebar button");
+
+document.querySelectorAll(".animated-button video").forEach(video => {
+  video._ready = false;
+
+  video.addEventListener("loadeddata", () => {
+    video._ready = true;
+    video.pause();
+    video.currentTime = 0;
+
+    // force a render once ready
+    updateSizes();
+  });
+});
+
 function updateSizes() {
 
   const contentRect = content.getBoundingClientRect();
@@ -90,7 +105,20 @@ function updateSizes() {
     );
 
     buttons[i].style.aspectRatio =
-      "5/" + (1 + overlap / contentRect.height);
+      "5/" + (1 + overlap / sectionRect.height);
+
+    if (buttons[i].className == "animated-button") {
+      const video = buttons[i].querySelector("video");
+
+      let progress = overlap / sectionRect.height;
+      console.log(progress);
+      buttons[i].style.setProperty("--progress", progress);
+
+      if (!video._ready || !video.duration) return;
+
+      video.pause();
+      video.currentTime = progress * video.duration;
+    }
   }
 }
 

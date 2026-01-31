@@ -149,6 +149,29 @@ a:visited {
   text-align: center;
 }
 
+.animated-button {
+  position: relative;
+  --progress: 0;
+  width: 100%;
+  aspect-ratio: 5 / calc(1+var(--progress));
+  overflow: hidden;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.animated-bg {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+
+  width: 100%;
+  height: auto;
+
+  object-fit: cover;
+  pointer-events: none;
+}
 
   .img-button {
   
