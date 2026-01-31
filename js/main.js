@@ -91,6 +91,8 @@ document.querySelectorAll(".animated-button video").forEach(video => {
   });
 });
 
+let needsUpdate = false;
+
 function updateSizes() {
 
   const contentRect = content.getBoundingClientRect();
@@ -111,16 +113,40 @@ function updateSizes() {
       const video = buttons[i].querySelector("video");
 
       let progress = overlap / sectionRect.height;
-      console.log(progress);
+      // console.log(progress);
       buttons[i].style.setProperty("--progress", progress);
+      buttons[i]._progress = progress;
+      
+      // if (!video._ready || !video.duration) return;
 
-      if (!video._ready || !video.duration) return;
-
-      video.pause();
-      video.currentTime = progress * video.duration;
+      // video.pause();
+      // video.currentTime = progress * video.duration;
     }
+
+    needsUpdate = true;
+
   }
 }
+
+function rafLoop() {
+  if (needsUpdate) {
+    buttons.forEach(btn => {
+      if (!btn.classList.contains("animated-button")) return;
+
+      const video = btn.querySelector("video");
+      if (!video || !video._ready || !video.duration) return;
+
+      video.pause();
+      video.currentTime = btn._progress * video.duration;
+    });
+
+    needsUpdate = false;
+  }
+
+  requestAnimationFrame(rafLoop);
+}
+
+rafLoop();
 
 buttons.forEach(btn => {
   btn.addEventListener("click", () => {
@@ -133,7 +159,9 @@ buttons.forEach(btn => {
 });
 
 updateSizes();
-content.addEventListener("scroll", updateSizes);
+content.addEventListener("scroll", updateSizes, { passive: true });
+updateSizes();
+
 
 const lightbox = document.getElementById('lightbox');
 const lightboxImg = document.getElementById('lightbox-img');
